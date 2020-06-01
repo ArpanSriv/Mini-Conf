@@ -34,8 +34,8 @@ format-check:
 	@echo "format-check passed"
 
 deploy: freeze
-	git branch -D gh-pages
-	git branch -D $(TEMP_DEPLOY_BRANCH)
+	git branch -D gh-pages || true
+	git branch -D $(TEMP_DEPLOY_BRANCH) || true
 	git checkout -b $(TEMP_DEPLOY_BRANCH)
 	git add -f build
 	git commit -am "Deploy on gh-pages"
